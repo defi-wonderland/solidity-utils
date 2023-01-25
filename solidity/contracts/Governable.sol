@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.8.8 <0.9.0;
 
-import {IGovernable} from 'interfaces/utils/IGovernable.sol';
+import {IGovernable} from '../interfaces/IGovernable.sol';
 
 /// @title Governable contract
 /// @notice Manages the governor role

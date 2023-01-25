@@ -1,30 +1,18 @@
 {
-  "name": "solidity-foundry-boilerplate",
-  "version": "1.0.0",
-  "description": "Production ready Solidity boilerplate with Foundry",
-  "homepage": "https://github.com/defi-wonderland/solidity-foundry-boilerplate#readme",
+  "name": "@defi-wonderland/solidity-utils",
+  "version": "0.01",
+  "description": "Utility contracts for Solidity development",
+  "files": ["solidity/contracts", "solidity/interfaces", "solidity/test"],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/defi-wonderland/solidity-foundry-boilerplate.git"
+    "url": "git+https://github.com/defi-wonderland/solidity-utils.git"
   },
   "author": "Wonderland",
-  "contributors": [
-    "0xGorilla (https://github.com/0xGorilla)",
-    "0xng (https://github.com/0xng)",
-    "gas1cent (https://github.com/gas1cent)"
-  ],
   "license": "MIT",
-  "private": true,
   "scripts": {
     "build": "forge build",
-    "build:optimized": "FOUNDRY_PROFILE=optimized forge build",
     "test": "forge test -vvv",
-    "test:e2e": "forge test --match-contract E2E -vvv",
-    "test:unit": "forge test --match-contract Unit -vvv",
-    "test:unit:deep": "FOUNDRY_FUZZ_RUNS=5000 yarn test:unit",
-    "coverage": "forge coverage --match-contract Unit",
-    "deploy:rinkeby": "bash -c 'source .env && forge script DeployRinkeby --rpc-url $RINKEBY_RPC --broadcast --private-key $RINKEBY_DEPLOYER_PK --verify --etherscan-api-key $ETHERSCAN_API_KEY'",
-    "deploy:mainnet": "bash -c 'source .env && forge script DeployMainnet --rpc-url $MAINNET_RPC --broadcast --private-key $MAINNET_DEPLOYER_PK --verify --etherscan-api-key $ETHERSCAN_API_KEY'",
+    "coverage": "forge coverage",
     "lint:fix": "forge fmt",
     "postinstall": "forge install --no-git",
     "lint:check": "forge fmt --check",
@@ -33,16 +21,14 @@
   "devDependencies": {
     "@commitlint/cli": "17.0.3",
     "@commitlint/config-conventional": "17.0.3",
-    "husky": ">=8",
+    "husky": "^8.0.3",
     "lint-staged": ">=10"
   },
   "lint-staged": {
     "*.sol": "forge fmt"
   },
   "dependencies": {
-    "@defi-wonderland/isolmate": "https://github.com/defi-wonderland/isolmate",
-    "@openzeppelin/contracts": "^4.8.1",
-    "@prb/test": "^0.2.1",
+    "@openzeppelin/contracts": "4.8.1",
     "ds-test": "https://github.com/dapphub/ds-test",
     "forge-std": "https://github.com/foundry-rs/forge-std"
   }

@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.8.8 <0.9.0;
 
-import {Governable} from 'contracts/utils/Governable.sol';
-import {IPausable} from 'interfaces/utils/IPausable.sol';
+import {Governable} from './Governable.sol';
+import {IPausable} from '../interfaces/IPausable.sol';
 
 /// @title Pausable contract
 /// @notice Provides pausable functionalities to a given contract

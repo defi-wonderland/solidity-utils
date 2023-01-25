@@ -5,9 +5,9 @@ single_line_statement_blocks = 'single'
 [profile.default]
 solc = '0.8.14'
 src = 'solidity'
-test = 'solidity/test'
+test = 'solidity/unit'
 out = 'out'
-libs = ['lib']
+libs = ["lib"]
 fuzz_runs = 1000
 optimizer_runs = 10_000
 
@@ -20,8 +20,4 @@ fuzz_runs = 5000
 via_ir = true
 out = 'out-via-ir'
 fuzz_runs = 5000
-src = 'solidity/test'
-
-[rpc_endpoints]
-mainnet = "${MAINNET_RPC}"
-rinkeby = "${RINKEBY_RPC}"
+src = 'solidity/unit'

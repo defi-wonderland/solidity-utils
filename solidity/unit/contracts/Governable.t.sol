@@ -1,14 +1,14 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity >=0.8.8 <0.9.0;
 
-import {Governable, IGovernable} from 'contracts/utils/Governable.sol';
-import {DSTestFull} from 'test/utils/DSTestFull.sol';
+import {Governable, IGovernable} from '../../contracts/Governable.sol';
+import {DSTestPlus} from '../../test/DSTestPlus.sol';
 
 contract GovernableForTest is Governable {
     constructor(address _governor) Governable(_governor) {}
 }
 
-abstract contract Base is DSTestFull {
+abstract contract Base is DSTestPlus {
     address governor = label('governor');
     address pendingGovernor = label('pendingGovernor');
     address user = label('user');

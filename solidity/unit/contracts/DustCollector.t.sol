@@ -1,15 +1,15 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity >=0.8.8 <0.9.0;
 
-import {DustCollector, IDustCollector, IERC20} from 'contracts/utils/DustCollector.sol';
-import {Governable, IGovernable} from 'contracts/utils/Governable.sol';
-import {DSTestFull} from 'test/utils/DSTestFull.sol';
+import {DustCollector, IDustCollector, IERC20} from '../../contracts/DustCollector.sol';
+import {Governable, IGovernable} from '../../contracts/Governable.sol';
+import {DSTestPlus} from '../../test/DSTestPlus.sol';
 
 contract DustCollectorForTest is DustCollector {
     constructor(address _governor) Governable(_governor) {}
 }
 
-abstract contract Base is DSTestFull {
+abstract contract Base is DSTestPlus {
     address governor = label('governor');
     address user = label('user');
 

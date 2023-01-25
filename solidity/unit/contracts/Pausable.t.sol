@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity >=0.8.8 <0.9.0;
 
-import {Pausable, IPausable} from 'contracts/utils/Pausable.sol';
-import {Governable, IGovernable} from 'contracts/utils/Governable.sol';
-import {DSTestFull} from 'test/utils/DSTestFull.sol';
+import {Pausable, IPausable} from '../../contracts/Pausable.sol';
+import {Governable, IGovernable} from '../../contracts/Governable.sol';
+import {DSTestPlus} from '../../test/DSTestPlus.sol';
 
 contract PausableForTest is Pausable {
     constructor(address _governor) Governable(_governor) {}
@@ -11,7 +11,7 @@ contract PausableForTest is Pausable {
     function notPausedModifier() external notPaused {}
 }
 
-abstract contract Base is DSTestFull {
+abstract contract Base is DSTestPlus {
     address governor = label('governor');
     address user = label('user');
 

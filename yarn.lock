@@ -183,10 +183,6 @@
   dependencies:
     "@jridgewell/trace-mapping" "0.3.9"
 
-"@defi-wonderland/isolmate@https://github.com/defi-wonderland/isolmate":
-  version "6.2.0-beta2"
-  resolved "https://github.com/defi-wonderland/isolmate#59e18043c2450fef550f1744b3705ce9ebcaf1c8"
-
 "@jridgewell/resolve-uri@^3.0.3":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@jridgewell/resolve-uri/-/resolve-uri-3.1.0.tgz#2203b118c157721addfe69d47b70465463066d78"
@@ -205,15 +201,10 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@openzeppelin/contracts@^4.8.1":
+"@openzeppelin/contracts@4.8.1":
   version "4.8.1"
   resolved "https://registry.yarnpkg.com/@openzeppelin/contracts/-/contracts-4.8.1.tgz#709cfc4bbb3ca9f4460d60101f15dac6b7a2d5e4"
   integrity sha512-xQ6eUZl+RDyb/FiZe1h+U7qr/f4p/SrTSQcTPH2bjur3C5DbuW/zFgCU/b1P/xcIaEqJep+9ju4xDRi3rmChdQ==
-
-"@prb/test@^0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@prb/test/-/test-0.2.1.tgz#ad118730c4a95ee35bec65763b69e41432810b7e"
-  integrity sha512-zJhLnBashJisuuXtmsvSQncY4FS3NnD3PxTc/tmXLVIL1diL7wmsX/Wvh2dwG951UlUxokg53EgvTwsEaucaCg==
 
 "@tsconfig/node10@^1.0.7":
   version "1.0.9"
@@ -757,7 +748,7 @@ human-signals@^3.0.1:
   resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-3.0.1.tgz#c740920859dafa50e5a3222da9d3bf4bb0e5eef5"
   integrity sha512-rQLskxnM/5OCldHo+wNXbpVgDn5A17CUoKX+7Sokwaknlq7CdSnphy0W39GU8dw59XiCXmFXDg4fRuckQRKewQ==
 
-husky@>=8:
+husky@^8.0.3:
   version "8.0.3"
   resolved "https://registry.yarnpkg.com/husky/-/husky-8.0.3.tgz#4936d7212e46d1dea28fef29bb3a108872cd9184"
   integrity sha512-+dQSyqPh4x1hlO1swXBiNb2HzTDN1I2IGLQx1GrBuiqFJfoMrnZWwVmatvSiO+Iz8fBUnf+lekwNo4c2LlXItg==

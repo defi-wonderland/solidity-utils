@@ -2,9 +2,9 @@
 pragma solidity >=0.8.8 <0.9.0;
 
 import {Governable} from './Governable.sol';
-import {IDustCollector} from 'interfaces/utils/IDustCollector.sol';
-import {IERC20} from '@openzeppelin/token/ERC20/IERC20.sol';
-import {SafeERC20} from '@openzeppelin/token/ERC20/utils/SafeERC20.sol';
+import {IDustCollector} from '../interfaces/IDustCollector.sol';
+import {IERC20} from '@openzeppelin/contracts/token/ERC20/IERC20.sol';
+import {SafeERC20} from '@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol';
 
 /// @title DustCollector contract
 abstract contract DustCollector is IDustCollector, Governable {

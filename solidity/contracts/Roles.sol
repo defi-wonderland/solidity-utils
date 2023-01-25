@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.8.8 <0.9.0;
 
-import {AccessControl} from '@openzeppelin/access/AccessControl.sol';
-import {IRoles} from 'interfaces/utils/IRoles.sol';
+import {AccessControl} from '@openzeppelin/contracts/access/AccessControl.sol';
+import {IRoles} from '../interfaces/IRoles.sol';
 
 /// @title Roles contract
 /// @notice Manages the roles for interactions with a contract

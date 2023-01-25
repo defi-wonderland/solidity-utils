@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity >=0.8.8 <0.9.0;
 
-import {Roles, IRoles} from 'contracts/utils/Roles.sol';
-import {DSTestFull} from 'test/utils/DSTestFull.sol';
+import {Roles, IRoles} from '../../contracts/Roles.sol';
+import {DSTestPlus} from '../../test/DSTestPlus.sol';
 
 contract RolesForTest is Roles {
     constructor(bytes32 _role, address _account) {
@@ -12,7 +12,7 @@ contract RolesForTest is Roles {
     function onlyRoleModifier(bytes32 _role) external onlyRole(_role) {}
 }
 
-abstract contract Base is DSTestFull {
+abstract contract Base is DSTestPlus {
     address admin = label('admin');
     address user = label('user');
 
