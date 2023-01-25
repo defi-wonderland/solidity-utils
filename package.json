@@ -1,6 +1,6 @@
 {
   "name": "@defi-wonderland/solidity-utils",
-  "version": "0.01",
+  "version": "0.0.1",
   "description": "Utility contracts for Solidity development",
   "files": ["solidity/contracts", "solidity/interfaces", "solidity/test"],
   "repository": {
