@@ -7,9 +7,9 @@ solc = '0.8.14'
 src = 'solidity'
 test = 'solidity/unit'
 out = 'out'
-libs = ["lib"]
 fuzz_runs = 1000
 optimizer_runs = 10_000
+libs = ["node_modules", "lib"]
 
 [profile.optimized]
 via_ir = true

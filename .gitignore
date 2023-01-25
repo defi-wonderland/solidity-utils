@@ -9,6 +9,7 @@ cache
 out-via-ir
 broadcast
 out
+lib
 
 # Avoid ignoring gitkeep
 !/**/.gitkeep
