@@ -110,7 +110,7 @@ contract DSTestPlus is Test {
     }
 
     function label(string memory name) internal returns (address) {
-        return makeAddr(name);
+        return label(newAddress(), name);
     }
 
     function mockContract(address addy, string memory name) internal returns (address) {
@@ -119,7 +119,7 @@ contract DSTestPlus is Test {
     }
 
     function mockContract(string memory name) internal returns (address) {
-        return mockContract(makeAddr(name), name);
+        return mockContract(newAddress(), name);
     }
 
     function advanceTime(uint256 timeToAdvance) internal {
@@ -142,6 +142,12 @@ contract DSTestPlus is Test {
                 )
             )
         );
+    }
+
+    function newAddress() internal returns (address) {
+        address payable nextAddress = payable(address(uint160(uint256(nextAddressSeed))));
+        nextAddressSeed = keccak256(abi.encodePacked(nextAddressSeed));
+        return nextAddress;
     }
 
     function expectEmitNoIndex() internal {
