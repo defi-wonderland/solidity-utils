@@ -14,7 +14,7 @@
     "test": "forge test -vvv",
     "coverage": "forge coverage",
     "lint:fix": "forge fmt",
-    "postinstall": "forge install --no-git",
+    "postinstall": "husky install",
     "lint:check": "forge fmt --check",
     "prepare": "husky install"
   },

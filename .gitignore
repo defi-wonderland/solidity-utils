@@ -6,9 +6,9 @@ node_modules
 
 # Foundry files
 cache
-out-via-ir
 broadcast
 out
+out-via-ir
 lib
 
 # Avoid ignoring gitkeep
