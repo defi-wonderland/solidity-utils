@@ -2,7 +2,11 @@
   "name": "@defi-wonderland/solidity-utils",
   "version": "0.0.1",
   "description": "Utility contracts for Solidity development",
-  "files": ["solidity/contracts", "solidity/interfaces", "solidity/test"],
+  "files": [
+    "solidity/contracts",
+    "solidity/interfaces",
+    "solidity/test"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/defi-wonderland/solidity-utils.git"
@@ -13,16 +17,19 @@
     "build": "forge build",
     "test": "forge test -vvv",
     "coverage": "forge coverage",
-    "lint:fix": "forge fmt",
-    "postinstall": "husky install",
     "lint:check": "forge fmt --check",
-    "prepare": "husky install"
+    "lint:fix": "forge fmt",
+    "prepare": "husky install",
+    "postinstall": "husky install",
+    "prepack": "pinst --disable",
+    "postpack": "pinst --enable"
   },
   "devDependencies": {
     "@commitlint/cli": "17.0.3",
     "@commitlint/config-conventional": "17.0.3",
     "husky": "^8.0.3",
-    "lint-staged": ">=10"
+    "lint-staged": ">=10",
+    "pinst": "^3.0.0"
   },
   "lint-staged": {
     "*.sol": "forge fmt"
