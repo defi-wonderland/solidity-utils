@@ -5,6 +5,7 @@
   "files": [
     "solidity/contracts",
     "solidity/interfaces",
+    "solidity/libraries",
     "solidity/test"
   ],
   "repository": {
