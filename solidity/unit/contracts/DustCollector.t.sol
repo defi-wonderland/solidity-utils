@@ -3,6 +3,7 @@ pragma solidity >=0.8.8 <0.9.0;
 
 import {DustCollector, IDustCollector, IERC20} from '../../contracts/DustCollector.sol';
 import {Governable, IGovernable} from '../../contracts/Governable.sol';
+import {IBaseErrors} from '../../interfaces/IBaseErrors.sol';
 import {DSTestPlus} from '../../test/DSTestPlus.sol';
 
 contract DustCollectorForTest is DustCollector {
@@ -45,7 +46,7 @@ contract Unit_DustCollector_SendDust is Base {
     }
 
     function test_RevertOnlyGovernor(uint256 _amount) public {
-        vm.expectRevert(IGovernable.Governable_OnlyGovernor.selector);
+        vm.expectRevert(IGovernable.OnlyGovernor.selector);
 
         vm.stopPrank();
         vm.prank(user);
@@ -53,7 +54,7 @@ contract Unit_DustCollector_SendDust is Base {
     }
 
     function test_RevertZeroAddress(uint256 _amount) public {
-        vm.expectRevert(IDustCollector.DustCollector_ZeroAddress.selector);
+        vm.expectRevert(IBaseErrors.ZeroAddress.selector);
 
         dustCollector.sendDust(ETH_ADDRESS, _amount, address(0));
     }

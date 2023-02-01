@@ -13,7 +13,7 @@ abstract contract Governable is IGovernable {
     address public pendingGovernor;
 
     constructor(address _governor) {
-        if (_governor == address(0)) revert Governable_ZeroAddress();
+        if (_governor == address(0)) revert ZeroAddress();
         governor = _governor;
     }
 
@@ -28,7 +28,7 @@ abstract contract Governable is IGovernable {
     }
 
     function _setPendingGovernor(address _pendingGovernor) internal {
-        if (_pendingGovernor == address(0)) revert Governable_ZeroAddress();
+        if (_pendingGovernor == address(0)) revert ZeroAddress();
         pendingGovernor = _pendingGovernor;
         emit PendingGovernorSet(governor, _pendingGovernor);
     }
@@ -41,13 +41,13 @@ abstract contract Governable is IGovernable {
 
     /// @notice Functions with this modifier can only be called by governor
     modifier onlyGovernor() {
-        if (msg.sender != governor) revert Governable_OnlyGovernor();
+        if (msg.sender != governor) revert OnlyGovernor();
         _;
     }
 
     /// @notice Functions with this modifier can only be called by pendingGovernor
     modifier onlyPendingGovernor() {
-        if (msg.sender != pendingGovernor) revert Governable_OnlyPendingGovernor();
+        if (msg.sender != pendingGovernor) revert OnlyPendingGovernor();
         _;
     }
 }

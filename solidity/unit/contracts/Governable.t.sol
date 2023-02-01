@@ -2,6 +2,7 @@
 pragma solidity >=0.8.8 <0.9.0;
 
 import {Governable, IGovernable} from '../../contracts/Governable.sol';
+import {IBaseErrors} from '../../interfaces/IBaseErrors.sol';
 import {DSTestPlus} from '../../test/DSTestPlus.sol';
 
 contract GovernableForTest is Governable {
@@ -23,7 +24,7 @@ abstract contract Base is DSTestPlus {
 
 contract Unit_Governable_Constructor is Base {
     function test_RevertZeroAddress() public {
-        vm.expectRevert(IGovernable.Governable_ZeroAddress.selector);
+        vm.expectRevert(IBaseErrors.ZeroAddress.selector);
 
         new GovernableForTest(address(0));
     }
@@ -47,7 +48,7 @@ contract Unit_Governable_SetPendingGovernor is Base {
     }
 
     function test_RevertOnlyGovernor(address _pendingGovernor) public {
-        vm.expectRevert(IGovernable.Governable_OnlyGovernor.selector);
+        vm.expectRevert(IGovernable.OnlyGovernor.selector);
 
         vm.stopPrank();
         vm.prank(user);
@@ -55,7 +56,7 @@ contract Unit_Governable_SetPendingGovernor is Base {
     }
 
     function test_RevertZeroAddress() public {
-        vm.expectRevert(IGovernable.Governable_ZeroAddress.selector);
+        vm.expectRevert(IBaseErrors.ZeroAddress.selector);
 
         governable.setPendingGovernor(address(0));
     }
@@ -91,7 +92,7 @@ contract Unit_Governable_AcceptPendingGovernor is Base {
     }
 
     function test_RevertOnlyPendingGovernor() public {
-        vm.expectRevert(IGovernable.Governable_OnlyPendingGovernor.selector);
+        vm.expectRevert(IGovernable.OnlyPendingGovernor.selector);
 
         vm.stopPrank();
         vm.prank(user);

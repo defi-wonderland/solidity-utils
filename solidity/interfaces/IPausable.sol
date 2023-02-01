@@ -19,10 +19,10 @@ interface IPausable is IGovernable {
     // ERRORS
 
     /// @notice Thrown when trying to access a paused contract
-    error Pausable_Paused();
+    error Paused();
 
     /// @notice Thrown when governor tries to switch paused to the same state as before
-    error Pausable_NoChangeInPaused();
+    error NoChangeInPaused();
 
     // FUNCTIONS
 

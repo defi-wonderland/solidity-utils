@@ -1,8 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.8.8 <0.9.0;
 
+import {IBaseErrors} from './IBaseErrors.sol';
+
 /// @title Governable interface
-interface IGovernable {
+interface IGovernable is IBaseErrors {
     // STATE VARIABLES
 
     /// @return _governor Address of the current governor
@@ -24,14 +26,11 @@ interface IGovernable {
 
     // ERRORS
 
-    /// @notice Thrown if a variable is assigned to the zero address
-    error Governable_ZeroAddress();
-
     /// @notice Thrown if a non-governor user tries to call a OnlyGovernor function
-    error Governable_OnlyGovernor();
+    error OnlyGovernor();
 
     /// @notice Thrown if a non-pending-governor user tries to call a OnlyPendingGovernor function
-    error Governable_OnlyPendingGovernor();
+    error OnlyPendingGovernor();
 
     // FUNCTIONS
 

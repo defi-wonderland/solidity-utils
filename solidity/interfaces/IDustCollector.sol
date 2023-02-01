@@ -2,9 +2,10 @@
 pragma solidity >=0.8.8 <0.9.0;
 
 import {IGovernable} from './IGovernable.sol';
+import {IBaseErrors} from './IBaseErrors.sol';
 
 /// @title DustCollector interface
-interface IDustCollector is IGovernable {
+interface IDustCollector is IBaseErrors, IGovernable {
     // STATE VARIABLES
 
     /// @return _ethAddress Address used to trigger a native token transfer
@@ -18,11 +19,6 @@ interface IDustCollector is IGovernable {
     /// @param _token The token that will be transferred
     /// @param _amount The amount of the token that will be transferred
     event DustSent(address _token, uint256 _amount, address _to);
-
-    // ERRORS
-
-    /// @notice Thrown if a variable is assigned to the zero address
-    error DustCollector_ZeroAddress();
 
     // FUNCTIONS
 

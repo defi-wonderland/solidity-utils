@@ -8,5 +8,5 @@ interface IRoles is IAccessControl {
     // ERRORS
 
     /// @notice Thrown when the caller of the function is not an authorized role
-    error Roles_Unauthorized(address _account, bytes32 _role);
+    error Unauthorized(address _account, bytes32 _role);
 }

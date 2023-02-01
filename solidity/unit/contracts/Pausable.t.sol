@@ -33,7 +33,7 @@ contract Unit_Pausable_SetPaused is Base {
     }
 
     function test_RevertOnlyGovernor(bool _paused) public {
-        vm.expectRevert(IGovernable.Governable_OnlyGovernor.selector);
+        vm.expectRevert(IGovernable.OnlyGovernor.selector);
 
         vm.stopPrank();
         vm.prank(user);
@@ -43,7 +43,7 @@ contract Unit_Pausable_SetPaused is Base {
     function test_RevertNoChangeInPaused(bool _paused) public {
         vm.assume(_paused == pausable.paused());
 
-        vm.expectRevert(IPausable.Pausable_NoChangeInPaused.selector);
+        vm.expectRevert(IPausable.NoChangeInPaused.selector);
 
         pausable.setPaused(_paused);
     }
@@ -71,7 +71,7 @@ contract Unit_Pausable_NotPaused is Base {
         vm.prank(governor);
         pausable.setPaused(true);
 
-        vm.expectRevert(IPausable.Pausable_Paused.selector);
+        vm.expectRevert(IPausable.Paused.selector);
 
         pausable.notPausedModifier();
     }

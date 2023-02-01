@@ -16,14 +16,14 @@ abstract contract Pausable is IPausable, Governable {
     }
 
     function _setPaused(bool _paused) internal {
-        if (paused == _paused) revert Pausable_NoChangeInPaused();
+        if (paused == _paused) revert NoChangeInPaused();
         paused = _paused;
         emit PausedSet(_paused);
     }
 
     /// @notice Provides pausable logic to the function marked with this modifier
     modifier notPaused() {
-        if (paused) revert Pausable_Paused();
+        if (paused) revert Paused();
         _;
     }
 }

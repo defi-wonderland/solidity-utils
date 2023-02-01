@@ -34,7 +34,7 @@ contract Unit_Roles_OnlyRole is Base {
     }
 
     function test_RevertUnauthorized() public {
-        vm.expectRevert(abi.encodeWithSelector(IRoles.Roles_Unauthorized.selector, user, DEFAULT_ADMIN_ROLE));
+        vm.expectRevert(abi.encodeWithSelector(IRoles.Unauthorized.selector, user, DEFAULT_ADMIN_ROLE));
 
         vm.stopPrank();
         vm.prank(user);
