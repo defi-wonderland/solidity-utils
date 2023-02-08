@@ -30,70 +30,20 @@ contract DSTestPlus is Test {
         emit log_named_uint(string(abi.encodePacked(checkpointLabel, ' Gas')), gasDelta);
     }
 
-    function fail(string memory err) internal virtual override {
-        emit log_named_string('Error', err);
-        fail();
-    }
-
-    function assertUint128Eq(uint128 a, uint128 b) internal virtual {
+    function assertEqUint128(uint128 a, uint128 b) internal virtual {
         assertEq(uint256(a), uint256(b));
     }
 
-    function assertUint64Eq(uint64 a, uint64 b) internal virtual {
+    function assertEqUint96(uint96 a, uint96 b) internal virtual {
         assertEq(uint256(a), uint256(b));
     }
 
-    function assertUint96Eq(uint96 a, uint96 b) internal virtual {
+    function assertEqUint64(uint64 a, uint64 b) internal virtual {
         assertEq(uint256(a), uint256(b));
     }
 
-    function assertUint32Eq(uint32 a, uint32 b) internal virtual {
+    function assertEqUint32(uint32 a, uint32 b) internal virtual {
         assertEq(uint256(a), uint256(b));
-    }
-
-    function assertBoolEq(bool a, bool b) internal virtual {
-        b ? assertTrue(a) : assertFalse(a);
-    }
-
-    function assertRelApproxEq(uint256 a, uint256 b, uint256 maxPercentDelta) internal virtual {
-        uint256 delta = a > b ? a - b : b - a;
-        uint256 abs = a > b ? a : b;
-
-        uint256 percentDelta = (delta * 1e18) / abs;
-
-        if (percentDelta > maxPercentDelta) {
-            emit log('Error: a ~= b not satisfied [uint]');
-            emit log_named_uint('    Expected', b);
-            emit log_named_uint('      Actual', a);
-            emit log_named_uint(' Max % Delta', maxPercentDelta);
-            emit log_named_uint('     % Delta', percentDelta);
-            fail();
-        }
-    }
-
-    function assertBytesEq(bytes memory a, bytes memory b) internal virtual {
-        if (keccak256(a) != keccak256(b)) {
-            emit log('Error: a == b not satisfied [bytes]');
-            emit log_named_bytes('  Expected', b);
-            emit log_named_bytes('    Actual', a);
-            fail();
-        }
-    }
-
-    function assertUintArrayEq(uint256[] memory a, uint256[] memory b) internal virtual {
-        require(a.length == b.length, 'LENGTH_MISMATCH');
-
-        for (uint256 i = 0; i < a.length; i++) {
-            assertEq(a[i], b[i]);
-        }
-    }
-
-    function assertAddressArrayEq(address[] memory a, address[] memory b) internal virtual {
-        require(a.length == b.length, 'LENGTH_MISMATCH');
-
-        for (uint256 i = 0; i < a.length; i++) {
-            assertEq(a[i], b[i]);
-        }
     }
 
     function min3(uint256 a, uint256 b, uint256 c) internal pure returns (uint256) {
@@ -151,6 +101,6 @@ contract DSTestPlus is Test {
     }
 
     function expectEmitNoIndex() internal {
-        vm.expectEmit(false, false, false, true);
+        vm.expectEmit(true, true, true, true);
     }
 }
