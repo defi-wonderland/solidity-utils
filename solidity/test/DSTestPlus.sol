@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 pragma solidity >=0.8.0;
 
+import {Create2Address} from './../libraries/Create2Address.sol';
+
 import 'ds-test/test.sol';
 import 'forge-std/Test.sol';
 import 'forge-std/Vm.sol';
@@ -28,22 +30,6 @@ contract DSTestPlus is Test {
         uint256 gasDelta = checkpointGasLeft - checkpointGasLeft2 - 100;
 
         emit log_named_uint(string(abi.encodePacked(checkpointLabel, ' Gas')), gasDelta);
-    }
-
-    function assertEqUint128(uint128 a, uint128 b) internal virtual {
-        assertEq(uint256(a), uint256(b));
-    }
-
-    function assertEqUint96(uint96 a, uint96 b) internal virtual {
-        assertEq(uint256(a), uint256(b));
-    }
-
-    function assertEqUint64(uint64 a, uint64 b) internal virtual {
-        assertEq(uint256(a), uint256(b));
-    }
-
-    function assertEqUint32(uint32 a, uint32 b) internal virtual {
-        assertEq(uint256(a), uint256(b));
     }
 
     function min3(uint256 a, uint256 b, uint256 c) internal pure returns (uint256) {
@@ -76,22 +62,12 @@ contract DSTestPlus is Test {
         vm.warp(block.timestamp + timeToAdvance);
     }
 
-    function computeDeterministicAddress(address deployer, bytes memory salt, bytes memory creationCode)
+    function computeDeterministicAddress(address deployer, bytes32 salt, bytes32 initCodeHash)
         internal
         pure
         returns (address)
     {
-        return address(
-            uint160(
-                uint256(
-                    keccak256(
-                        abi.encodePacked(
-                            bytes1(0xff), address(deployer), keccak256(salt), keccak256(abi.encodePacked(creationCode))
-                        )
-                    )
-                )
-            )
-        );
+        return Create2Address.computeDeterministicAddress(deployer, salt, initCodeHash);
     }
 
     function newAddress() internal returns (address) {
