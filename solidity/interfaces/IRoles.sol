@@ -5,8 +5,8 @@ import {IAccessControl} from '@openzeppelin/contracts/access/IAccessControl.sol'
 
 /// @title Roles interface
 interface IRoles is IAccessControl {
-    // ERRORS
+  // ERRORS
 
-    /// @notice Thrown when the caller of the function is not an authorized role
-    error Unauthorized(address _account, bytes32 _role);
+  /// @notice Thrown when the caller of the function is not an authorized role
+  error Unauthorized(address _account, bytes32 _role);
 }

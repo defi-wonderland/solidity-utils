@@ -20,3 +20,6 @@ src = 'solidity/unit'
 via_ir = true
 out = 'out-via-ir'
 fuzz_runs = 5000
+
+[rpc_endpoints]
+mainnet = "${MAINNET_RPC}"

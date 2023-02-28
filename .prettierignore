@@ -2,6 +2,7 @@
 .prettierignore
 .solhintignore
 .husky
+.github
 .gitignore
 .gitattributes
 .gitmodules
@@ -9,6 +10,7 @@
 .env
 workspace.code-workspace
 .DS_STORE
+LICENSE
 codechecks.yml
 
 # Foundry

@@ -5,39 +5,39 @@ import {IBaseErrors} from './IBaseErrors.sol';
 
 /// @title Governable interface
 interface IGovernable is IBaseErrors {
-    // STATE VARIABLES
+  // STATE VARIABLES
 
-    /// @return _governor Address of the current governor
-    function governor() external view returns (address _governor);
+  /// @return _governor Address of the current governor
+  function governor() external view returns (address _governor);
 
-    /// @return _pendingGovernor Address of the current pending governor
-    function pendingGovernor() external view returns (address _pendingGovernor);
+  /// @return _pendingGovernor Address of the current pending governor
+  function pendingGovernor() external view returns (address _pendingGovernor);
 
-    // EVENTS
+  // EVENTS
 
-    /// @notice Emitted when a new pending governor is set
-    /// @param _governor Address of the current governor
-    /// @param _pendingGovernor Address of the proposed next governor
-    event PendingGovernorSet(address _governor, address _pendingGovernor);
+  /// @notice Emitted when a new pending governor is set
+  /// @param _governor Address of the current governor
+  /// @param _pendingGovernor Address of the proposed next governor
+  event PendingGovernorSet(address _governor, address _pendingGovernor);
 
-    /// @notice Emitted when a new governor is set
-    /// @param _newGovernor Address of the new governor
-    event PendingGovernorAccepted(address _newGovernor);
+  /// @notice Emitted when a new governor is set
+  /// @param _newGovernor Address of the new governor
+  event PendingGovernorAccepted(address _newGovernor);
 
-    // ERRORS
+  // ERRORS
 
-    /// @notice Thrown if a non-governor user tries to call a OnlyGovernor function
-    error OnlyGovernor();
+  /// @notice Thrown if a non-governor user tries to call a OnlyGovernor function
+  error OnlyGovernor();
 
-    /// @notice Thrown if a non-pending-governor user tries to call a OnlyPendingGovernor function
-    error OnlyPendingGovernor();
+  /// @notice Thrown if a non-pending-governor user tries to call a OnlyPendingGovernor function
+  error OnlyPendingGovernor();
 
-    // FUNCTIONS
+  // FUNCTIONS
 
-    /// @notice Allows a governor to propose a new governor
-    /// @param _pendingGovernor Address of the proposed new governor
-    function setPendingGovernor(address _pendingGovernor) external;
+  /// @notice Allows a governor to propose a new governor
+  /// @param _pendingGovernor Address of the proposed new governor
+  function setPendingGovernor(address _pendingGovernor) external;
 
-    /// @notice Allows a proposed governor to accept the governance
-    function acceptPendingGovernor() external;
+  /// @notice Allows a proposed governor to accept the governance
+  function acceptPendingGovernor() external;
 }
