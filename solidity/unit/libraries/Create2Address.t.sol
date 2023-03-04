@@ -25,7 +25,8 @@ abstract contract Base is DSTestPlus {
 
 contract Unit_Create2Address_ComputeAddress is Base {
   function test_ComputeDeterministicAddress(address _deployer, bytes32 _salt, bytes32 _initCodeHash) public {
-    address _computedAddress = address(uint160(uint256(keccak256(abi.encodePacked(hex'ff', _deployer, _salt, _initCodeHash)))));
+    address _computedAddress =
+      address(uint160(uint256(keccak256(abi.encodePacked(hex'ff', _deployer, _salt, _initCodeHash)))));
 
     assertEq(create2Address.computeDeterministicAddress(_deployer, _salt, _initCodeHash), _computedAddress);
   }

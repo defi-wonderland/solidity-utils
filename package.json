@@ -18,9 +18,8 @@
     "build": "forge build",
     "coverage": "forge coverage",
     "postinstall": "husky install",
-    "lint:check": "yarn lint:sol && yarn lint:prettier --check",
-    "lint:fix": "sort-package-json && yarn lint:sol --fix && yarn lint:prettier --write",
-    "lint:prettier": "cross-env prettier './**'",
+    "lint:check": "forge fmt check && yarn lint:sol",
+    "lint:fix": "sort-package-json && forge fmt && yarn lint:sol --fix",
     "lint:sol": "cross-env solhint 'solidity/**/*.sol'",
     "prepack": "pinst --disable",
     "postpack": "pinst --enable",
@@ -28,7 +27,7 @@
     "test": "forge test -vvv"
   },
   "lint-staged": {
-    "*.{js,css,md,ts,sol}": "prettier --write",
+    "*.{js,css,md,ts,sol}": "forge fmt",
     "*.sol": "cross-env solhint --fix 'solidity/**/*.sol'",
     "package.json": "sort-package-json"
   },
@@ -44,11 +43,8 @@
     "husky": "^8.0.3",
     "lint-staged": ">=10",
     "pinst": "^3.0.0",
-    "prettier": "2.8.4",
-    "prettier-plugin-solidity": "1.1.2",
     "solhint": "3.3.8",
     "solhint-plugin-defi-wonderland": "1.0.0",
-    "solhint-plugin-prettier": "0.0.5",
     "sort-package-json": "2.4.1"
   }
 }

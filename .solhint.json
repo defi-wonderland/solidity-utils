@@ -1,6 +1,6 @@
 {
   "extends": "solhint:recommended",
-  "plugins": ["prettier", "defi-wonderland"],
+  "plugins": ["defi-wonderland"],
   "rules": {
     "compiler-version": ["off"],
     "constructor-syntax": "warn",
@@ -18,7 +18,6 @@
     "avoid-low-level-calls": "off",
     "no-inline-assembly": "off",
     "quotes": ["error", "single"],
-    "prettier/prettier": "warn",
     "defi-wonderland/contract-data-order": "warn",
     "defi-wonderland/enum-name-camelcase": "warn",
     "defi-wonderland/immutable-name-snakecase": "warn",

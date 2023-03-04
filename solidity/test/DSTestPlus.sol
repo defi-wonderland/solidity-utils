@@ -62,7 +62,11 @@ contract DSTestPlus is Test {
     vm.warp(block.timestamp + timeToAdvance);
   }
 
-  function computeDeterministicAddress(address deployer, bytes32 salt, bytes32 initCodeHash) internal pure returns (address) {
+  function computeDeterministicAddress(
+    address deployer,
+    bytes32 salt,
+    bytes32 initCodeHash
+  ) internal pure returns (address) {
     return Create2Address.computeDeterministicAddress(deployer, salt, initCodeHash);
   }
 
