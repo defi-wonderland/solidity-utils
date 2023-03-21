@@ -3,11 +3,6 @@ pragma solidity >=0.8.8 <0.9.0;
 
 /// @title OnlyEOA interface
 interface IOnlyEOA {
-  // STATE VARIABLES
-
-  /// @return _onlyEOA Whether the caller is required to be an EOA or not
-  function onlyEOA() external view returns (bool _onlyEOA);
-
   // EVENTS
 
   /// @notice Emitted when onlyEOA is set
@@ -17,6 +12,11 @@ interface IOnlyEOA {
 
   /// @notice Thrown when the caller is not tx.origin
   error OnlyEOA();
+
+  // STATE VARIABLES
+
+  /// @return _onlyEOA Whether the caller is required to be an EOA or not
+  function onlyEOA() external view returns (bool _onlyEOA);
 
   // FUNCTIONS
 

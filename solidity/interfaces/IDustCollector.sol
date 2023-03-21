@@ -6,12 +6,6 @@ import {IBaseErrors} from './IBaseErrors.sol';
 
 /// @title DustCollector interface
 interface IDustCollector is IBaseErrors, IGovernable {
-  // STATE VARIABLES
-
-  /// @return _ethAddress Address used to trigger a native token transfer
-  // solhint-disable-next-line func-name-mixedcase
-  function ETH_ADDRESS() external view returns (address _ethAddress);
-
   // EVENTS
 
   /// @notice Emitted when dust is sent
@@ -19,6 +13,12 @@ interface IDustCollector is IBaseErrors, IGovernable {
   /// @param _token The token that will be transferred
   /// @param _amount The amount of the token that will be transferred
   event DustSent(address _token, uint256 _amount, address _to);
+
+  // STATE VARIABLES
+
+  /// @return _ethAddress Address used to trigger a native token transfer
+  // solhint-disable-next-line func-name-mixedcase
+  function ETH_ADDRESS() external view returns (address _ethAddress);
 
   // FUNCTIONS
 

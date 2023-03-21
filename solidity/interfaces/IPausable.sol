@@ -5,11 +5,6 @@ import {IGovernable} from './IGovernable.sol';
 
 /// @title Pausable interface
 interface IPausable is IGovernable {
-  // STATE VARIABLES
-
-  /// @return _paused Whether the contract is paused or not
-  function paused() external view returns (bool _paused);
-
   // EVENTS
 
   /// @notice Emitted when the contract pause is switched
@@ -23,6 +18,11 @@ interface IPausable is IGovernable {
 
   /// @notice Thrown when governor tries to switch paused to the same state as before
   error NoChangeInPaused();
+
+  // STATE VARIABLES
+
+  /// @return _paused Whether the contract is paused or not
+  function paused() external view returns (bool _paused);
 
   // FUNCTIONS
 

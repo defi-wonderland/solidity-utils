@@ -5,14 +5,6 @@ import {IBaseErrors} from './IBaseErrors.sol';
 
 /// @title Governable interface
 interface IGovernable is IBaseErrors {
-  // STATE VARIABLES
-
-  /// @return _governor Address of the current governor
-  function governor() external view returns (address _governor);
-
-  /// @return _pendingGovernor Address of the current pending governor
-  function pendingGovernor() external view returns (address _pendingGovernor);
-
   // EVENTS
 
   /// @notice Emitted when a new pending governor is set
@@ -31,6 +23,14 @@ interface IGovernable is IBaseErrors {
 
   /// @notice Thrown if a non-pending-governor user tries to call a OnlyPendingGovernor function
   error OnlyPendingGovernor();
+
+  // STATE VARIABLES
+
+  /// @return _governor Address of the current governor
+  function governor() external view returns (address _governor);
+
+  /// @return _pendingGovernor Address of the current pending governor
+  function pendingGovernor() external view returns (address _pendingGovernor);
 
   // FUNCTIONS
 
