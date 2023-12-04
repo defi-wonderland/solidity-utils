@@ -1,0 +1,15 @@
+# General
+yarn-error.log
+node_modules
+.DS_STORE
+.env
+
+# Foundry files
+cache
+broadcast
+out
+out-via-ir
+lib
+
+# Avoid ignoring gitkeep
+!/**/.gitkeep

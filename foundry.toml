@@ -1,0 +1,31 @@
+[fmt]
+quote_style = 'single'
+single_line_statement_blocks = 'single'
+line_length = 120
+tab_width = 2
+bracket_spacing = false
+int_types = 'long'
+number_underscore = 'thousands'
+multiline_func_header = 'params_first'
+
+[profile.default]
+solc = '0.8.14'
+src = 'solidity'
+test = 'solidity/unit'
+out = 'out'
+fuzz_runs = 1000
+optimizer_runs = 10_000
+
+[profile.optimized]
+via_ir = true
+out = 'out-via-ir'
+fuzz_runs = 5000
+
+[profile.test]
+src = 'solidity/unit'
+via_ir = true
+out = 'out-via-ir'
+fuzz_runs = 5000
+
+[rpc_endpoints]
+mainnet = "${MAINNET_RPC}"
