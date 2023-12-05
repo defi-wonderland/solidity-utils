@@ -16,7 +16,7 @@ abstract contract Pausable is IPausable, Governable {
   }
 
   /// @notice Pauses or unpauses the contract
-  /// @param _paused - true to pause, false to resume
+  /// @param _paused Whether to pause or unpause the contract
   function _setPaused(bool _paused) internal {
     if (paused == _paused) revert NoChangeInPaused();
     paused = _paused;
