@@ -9,7 +9,7 @@ number_underscore = 'thousands'
 multiline_func_header = 'params_first'
 
 [profile.default]
-solc = '0.8.14'
+solc = '0.8.20'
 src = 'solidity'
 test = 'solidity/unit'
 out = 'out'

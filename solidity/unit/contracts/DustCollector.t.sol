@@ -74,10 +74,9 @@ contract Unit_DustCollector_SendDust is Base {
   function test_EmitDustSent(uint256 _amount) public {
     expectEmitNoIndex();
     emit DustSent(ETH_ADDRESS, _amount, user);
+    dustCollector.sendDust(ETH_ADDRESS, _amount, user);
     expectEmitNoIndex();
     emit DustSent(address(token), _amount, user);
-
-    dustCollector.sendDust(ETH_ADDRESS, _amount, user);
     dustCollector.sendDust(address(token), _amount, user);
   }
 }
