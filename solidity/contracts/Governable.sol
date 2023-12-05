@@ -27,8 +27,8 @@ abstract contract Governable is IGovernable {
     _acceptPendingGovernor();
   }
 
-  /// @notice Sets pendingGovernor
-  /// @param _pendingGovernor - the address of pending governor
+  /// @notice Sets the pending governor
+  /// @param _pendingGovernor The address of the pending governor
   function _setPendingGovernor(address _pendingGovernor) internal {
     if (_pendingGovernor == address(0)) revert ZeroAddress();
     pendingGovernor = _pendingGovernor;
