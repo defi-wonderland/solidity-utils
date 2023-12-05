@@ -16,7 +16,7 @@ abstract contract OnlyEOA is IOnlyEOA, Governable {
   }
 
   /// @notice Sets onlyEOA
-  /// @param _onlyEOA - the value to set onlyEOA
+  /// @param _onlyEOA The value to set onlyEOA
   function _setOnlyEOA(bool _onlyEOA) internal {
     onlyEOA = _onlyEOA;
     emit OnlyEOASet(_onlyEOA);
