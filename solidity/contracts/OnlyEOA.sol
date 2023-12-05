@@ -22,7 +22,7 @@ abstract contract OnlyEOA is IOnlyEOA, Governable {
     emit OnlyEOASet(_onlyEOA);
   }
 
-  /// @notice validates whether the caller is EOA or not
+  /// @notice Validates whether the caller is EOA or not
   function _validateEOA(address _caller) internal view {
     // solhint-disable-next-line avoid-tx-origin
     if (_caller != tx.origin) revert OnlyEOA();
