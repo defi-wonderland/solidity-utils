@@ -6,7 +6,7 @@ import {DSTestPlus} from '../../test/DSTestPlus.sol';
 
 contract RolesForTest is Roles {
   constructor(bytes32 _role, address _account) {
-    _setupRole(_role, _account);
+    _grantRole(_role, _account);
   }
 
   function onlyRoleModifier(bytes32 _role) external onlyRole(_role) {}
