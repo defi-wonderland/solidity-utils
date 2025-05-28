@@ -1,5 +1,13 @@
 # Wonderland Solidity Utils
 
+> ⚠️ **DEPRECATED – DO NOT USE**
+>
+> This repository is no longer maintained and is **deprecated**.
+>
+> It may contain **outdated, insecure, or vulnerable code** and should **not** be used in production or as a dependency in any project.
+>
+> The repository is retained solely for historical reference. No support, updates, or security patches will be provided.
+
 `solidity-utils` is a utility package for the development of smart contracts written in Solidity. It includes useful contracts, interfaces and libraries, bringing some test tools as well.
 
 ### Contracts
